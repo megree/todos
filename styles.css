@@ -1,0 +1,158 @@
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url(SourceSansPro.ttf);
+}
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: bold;
+  margin: 10px;
+  white-space: nowrap;
+  width: 550px;
+  transition: background-color 0.4s;
+  background-color: #F0E6D3;
+}
+
+h1 {
+  font-size: 85px;
+}
+
+button {
+  font-family: 'Source Sans Pro', sans-serif;
+  cursor: pointer;
+  border-radius: 20%;
+  background-color: white;
+  border: none;
+  transition: background-color 0.4s;
+}
+
+button img {
+  width: 30px;
+  height: auto;
+}
+
+button:hover {
+  /*transform: scale(1.15, 1.15);*/
+  /*box-shadow: inset 0 0 20px black;*/
+}
+
+button:focus {outline:0}
+input:focus {outline:0}
+
+::-webkit-input-placeholder { 
+  color: black;
+}
+
+#container {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+#todoString[type="text"] {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: black;
+  width: 98%;
+  height: 40px;
+  font-size: 50px;
+  padding: 10px 6px;
+  border-radius: 10px;
+  border: none;
+  transition: background-color 0.4s;
+}
+
+#message {
+  transition-duration: 0.4s;
+  transition: opacity 0.4s linear;
+}
+
+#saveDo, #reset, #switchView, #sync {
+  color: black;
+  font-size: 20px;
+  background-color: #DDDDDD;
+  border-radius: 8px;
+}
+
+#saveDo {padding: 0 7.5px;}
+
+#switchView {
+  position: absolute;
+  right: 10px;
+}
+
+#sync {
+  margin: 10px 0 0px 490px;
+}
+
+.todo, .done {
+  font-size: 50px;
+  margin-top: 10px;
+  border: 0px solid #c8ccd1;
+  border-radius: 12px;
+  padding: 10px;
+  transition-duration: 0.4s;
+}
+
+.todo, .todo .todoTime {
+  color: white;
+}
+
+.done, .done .todoTime {
+  color: black;
+}
+
+.todoOptions {
+  margin-bottom: -8px;
+}
+
+.todoTime {
+  font-size: 12px;
+}
+
+.confirm {
+  transition-duration: 0.4s;
+  background-color: darkgrey;
+  border: none;
+  width: 30px;
+  height: 30px;
+}
+
+.todo .confirm:hover {
+  background-color: #FFFFFF;
+}
+
+.todo .confirm:after {
+  content: '>';
+  display: block;
+  font-size: 20px;
+  color: grey;
+}
+
+.done .confirm:hover {
+  background-color: #000;
+}
+
+.done .confirm:after {
+  content: 'X';
+  display: block;
+  font-size: 20px;
+  color: grey;
+}
+
+.todoColor {
+  width: 14px;
+  height: 14px;
+  margin: 0 1.5px;
+  border: none;
+}
+/*.todoColor:hover {
+  transform: scale(1.25, 1.25);
+}
+
+
+
+
+
+
+
+
