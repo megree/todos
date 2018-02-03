@@ -1,10 +1,5 @@
-@font-face {
-  font-family: 'Source Sans Pro';
-  src: url(SourceSansPro.ttf);
-}
-
 body {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: sans-serif;
   font-weight: bold;
   margin: 10px;
   white-space: nowrap;
@@ -18,12 +13,18 @@ h1 {
 }
 
 button {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: sans-serif;
+  font-weight: bold;
   cursor: pointer;
   border-radius: 20%;
   background-color: white;
   border: none;
   transition: background-color 0.4s;
+}
+
+input {
+  font-family: sans-serif;
+  font-weight: bold;
 }
 
 button img {
@@ -41,6 +42,8 @@ input:focus {outline:0}
 
 ::-webkit-input-placeholder { 
   color: black;
+  font-family: sans-serif;
+  font-weight: bold;
 }
 
 #container {
@@ -50,7 +53,7 @@ input:focus {outline:0}
 }
 
 #todoString[type="text"] {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: sans-serif;
   color: black;
   width: 98%;
   height: 40px;
@@ -68,7 +71,7 @@ input:focus {outline:0}
 
 #saveDo, #reset, #switchView, #sync {
   color: black;
-  font-size: 20px;
+  font-size: 18px;
   background-color: #DDDDDD;
   border-radius: 8px;
 }
@@ -85,12 +88,14 @@ input:focus {outline:0}
 }
 
 .todo, .done {
+  position: relative;
   font-size: 50px;
   margin-top: 10px;
   border: 0px solid #c8ccd1;
-  border-radius: 12px;
-  padding: 10px;
+  border-radius: 15px;
+  padding: 10px 10px 5px 10px;
   transition-duration: 0.4s;
+  box-sizing: border-box:
 }
 
 .todo, .todo .todoTime {
@@ -102,7 +107,11 @@ input:focus {outline:0}
 }
 
 .todoOptions {
-  margin-bottom: -8px;
+  position: absolute;
+  bottom: 3px;
+  right: 10px;
+
+  text-align: right;
 }
 
 .todoTime {
@@ -112,6 +121,7 @@ input:focus {outline:0}
 .confirm {
   transition-duration: 0.4s;
   background-color: darkgrey;
+  border-radius: 50%;
   border: none;
   width: 30px;
   height: 30px;
@@ -122,7 +132,7 @@ input:focus {outline:0}
 }
 
 .todo .confirm:after {
-  content: '>';
+  content: '';
   display: block;
   font-size: 20px;
   color: grey;
@@ -133,7 +143,7 @@ input:focus {outline:0}
 }
 
 .done .confirm:after {
-  content: 'X';
+  content: '';
   display: block;
   font-size: 20px;
   color: grey;
@@ -142,11 +152,25 @@ input:focus {outline:0}
 .todoColor {
   width: 14px;
   height: 14px;
-  margin: 0 1.5px;
+  border-radius: 50%;
+  margin: 0 1.2px;
   border: none;
 }
 /*.todoColor:hover {
   transform: scale(1.25, 1.25);
+}*/
+
+.todoString {
+  height: 130px;
+}
+
+.todoStringWidth {
+  font-size: 50px;
+  width: auto;
+  display: inline-block;
+  visibility: hidden;
+  position: fixed;
+  overflow: auto;
 }
 
 

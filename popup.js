@@ -30,7 +30,6 @@ function init() {
 function initFirstRun() {
   chrome.storage.sync.set({"todos": []}); 
   chrome.storage.sync.set({"dones": []});
-  renderMessage("dfgsdfg");
   saveDo("buy new wine glasses", "todos", colors[0]);
   saveDo("redecorate living room", "todos", colors[1]);
   saveDo("pack for business trip", "todos", colors[2]);
@@ -84,10 +83,14 @@ function renderDo(element, key) {
       var todoString = document.createElement("div");
       todoString.classList.add("todoString");
       todoString.innerHTML = getItem.todoString;
+      var todoStringWidth = document.getElementsByClassName("todoStringWidth")[0];
+      todoStringWidth.innerHTML = getItem.todoString;
+      // todoString.innerHTML += todoStringWidth.clientWidth;
+      if (todoStringWidth.clientWidth >= 500) todoString.style.fontSize = "40px";
 
-      var todoTime = document.createElement("span");
-      todoTime.classList.add("todoTime");
-      todoTime.innerHTML = (key.slice(0, -1) + ": " + getDateString(getItem.todoTime)).toUpperCase();
+	  var todoTime = document.createElement("span");
+	  todoTime.classList.add("todoTime");
+	  todoTime.innerHTML = (key.slice(0, -1) + ": " + getDateString(getItem.todoTime)).toUpperCase();
 
       var todoColors = [];
       colors.forEach((color) => {
@@ -106,13 +109,19 @@ function renderDo(element, key) {
       var button = document.createElement("button");
       button.classList.add("confirm");
       button.innerHTML = "";
+
+      var sep = document.createElement("span");
+      sep.innerHTML = "&nbsp";
       
       todoColors.forEach((todoColor) => {
         todoOptions.appendChild(todoColor);
         todoColor.style.visibility = "visible";
         if (key === "dones") todoColor.style.visibility = "hidden";
       });
-      todoOptions.appendChild(getSepElement(22)).appendChild(todoTime).appendChild(getSepElement(5)).appendChild(button);
+
+      if (key === "dones") todoOptions.appendChild(todoTime);
+
+      todoOptions.appendChild(sep).appendChild(button);
       doElement.appendChild(todoString).appendChild(todoOptions);
       element.appendChild(doElement);
 
@@ -179,10 +188,10 @@ function getTimestamp() {
 
 function getDateString(timestamp) {
   if (!timestamp) timestamp = Date.now();
-  return new Date(parseInt(timestamp)).toString().slice(0, -18);
+  return new Date(parseInt(timestamp)).toLocaleString("en-US");
 }
 
-function getSepElement(num) {
+/*function getSepElement(num) {
   var sep = document.createElement("span");
   var repeated = "";
   for (var i = 0; i < num; i++) {
@@ -190,7 +199,7 @@ function getSepElement(num) {
   }
   sep.innerHTML = repeated;
   return sep;
-}
+}*/
 
 document.addEventListener('DOMContentLoaded', () => {
   init();
